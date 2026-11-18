@@ -49,22 +49,25 @@ export default function NutritionPage() {
   const [customCarbs, setCustomCarbs] = useState(20);
   const [customFat, setCustomFat] = useState(5);
 
-  const todayDateStr = new Date().toISOString().split('T')[0];
+  const [todayDateStr, setTodayDateStr] = useState('2026-11-18');
 
   useEffect(() => {
+    const today = new Date().toISOString().split('T')[0];
+    setTodayDateStr(today);
+
     const load = () => {
       setProfile(StorageService.getProfile());
       setFoodDb(StorageService.getFoodDatabase());
       setNutritionLogs(StorageService.getNutritionLogs());
 
       // Check today's habit for creatine
-      const habit = StorageService.getHabitForDate(todayDateStr);
+      const habit = StorageService.getHabitForDate(today);
       setCreatineTaken(habit.supplementsTaken);
     };
     load();
     window.addEventListener('aesthetic-storage-update', load);
     return () => window.removeEventListener('aesthetic-storage-update', load);
-  }, [todayDateStr]);
+  }, []);
 
   // Filter logs for today
   const todayLogs = nutritionLogs.filter((n) => n.date === todayDateStr);

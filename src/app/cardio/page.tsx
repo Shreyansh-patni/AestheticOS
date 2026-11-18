@@ -54,14 +54,35 @@ export default function CardioPage() {
   const [runDuration, setRunDuration] = useState(20);
   const [runType, setRunType] = useState<'easy' | 'interval' | 'tempo'>('easy');
   const [runNotes, setRunNotes] = useState('');
-
-  const todayDateStr = new Date().toISOString().split('T')[0];
+  const [todayDateStr, setTodayDateStr] = useState('2026-11-18');
+  const [past7Days, setPast7Days] = useState<{ day: string; date: string; minutes: number; target: number }[]>([]);
 
   useEffect(() => {
+    const today = new Date().toISOString().split('T')[0];
+    setTodayDateStr(today);
+
     const load = () => {
-      setProfile(StorageService.getProfile());
-      setWalkLogs(StorageService.getWalks());
-      setRunLogs(StorageService.getRuns());
+      const p = StorageService.getProfile();
+      const w = StorageService.getWalks();
+      const r = StorageService.getRuns();
+      setProfile(p);
+      setWalkLogs(w);
+      setRunLogs(r);
+
+      const days = Array.from({ length: 7 }, (_, i) => {
+        const d = new Date();
+        d.setDate(d.getDate() - (6 - i));
+        const dateStr = d.toISOString().split('T')[0];
+        const dayWalks = w.filter((walk) => walk.date === dateStr);
+        const totalMins = dayWalks.reduce((sum, walk) => sum + walk.durationMinutes, 0);
+        return {
+          day: d.toLocaleDateString('en-US', { weekday: 'short' }),
+          date: dateStr,
+          minutes: totalMins,
+          target: p.dailyWalkingTargetMinutes,
+        };
+      });
+      setPast7Days(days);
     };
     load();
     window.addEventListener('aesthetic-storage-update', load);
@@ -84,21 +105,6 @@ export default function CardioPage() {
   // Today's total walked minutes
   const todayWalks = walkLogs.filter((w) => w.date === todayDateStr);
   const todayWalkMinutes = todayWalks.reduce((acc, curr) => acc + curr.durationMinutes, 0);
-
-  // Weekly walking completion chart data (last 7 days)
-  const past7Days = Array.from({ length: 7 }, (_, i) => {
-    const d = new Date();
-    d.setDate(d.getDate() - (6 - i));
-    const dateStr = d.toISOString().split('T')[0];
-    const dayWalks = walkLogs.filter((w) => w.date === dateStr);
-    const totalMins = dayWalks.reduce((sum, w) => sum + w.durationMinutes, 0);
-    return {
-      day: d.toLocaleDateString('en-US', { weekday: 'short' }),
-      date: dateStr,
-      minutes: totalMins,
-      target: profile.dailyWalkingTargetMinutes,
-    };
-  });
 
   // Finish live walking session
   const finishLiveWalk = () => {
