@@ -29,7 +29,7 @@ export default function CardioScreen() {
   // Walk Live Stopwatch state
   const [isWalking, setIsWalking] = useState(false);
   const [walkElapsedSeconds, setWalkElapsedSeconds] = useState(0);
-  const walkTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const walkTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Manual Run Log inputs
   const [runDistance, setRunDistance] = useState('3.0');

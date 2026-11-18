@@ -38,7 +38,7 @@ export default function WorkoutScreen() {
   const [notesModalExerciseId, setNotesModalExerciseId] = useState<string | null>(null);
 
   // Timer interval reference
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const initOrLoadSession = useCallback(() => {
     const existing = database.getActiveSession();
