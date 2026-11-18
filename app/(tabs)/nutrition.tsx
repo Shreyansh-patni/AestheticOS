@@ -17,7 +17,7 @@ import { haptics } from '@/services/haptics';
 import { NativeCard } from '@/components/NativeCard';
 import { NativeButton } from '@/components/NativeButton';
 import { vegetarianAndEggFoods } from '@/constants/InitialData';
-import { NutritionLogItem, UserProfile } from '@/types';
+import { NutritionLogItem, UserProfile, FoodDatabaseItem } from '@/types';
 
 export default function NutritionScreen() {
   const colorScheme = useColorScheme() ?? 'dark';
@@ -44,7 +44,7 @@ export default function NutritionScreen() {
     }, [loadNutritionData])
   );
 
-  const addFoodToLog = (item: typeof vegetarianAndEggFoods[0]) => {
+  const addFoodToLog = (item: FoodDatabaseItem) => {
     haptics.success();
 
     const newLog: NutritionLogItem = {

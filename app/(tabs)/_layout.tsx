@@ -39,7 +39,7 @@ export default function TabLayout() {
         options={{
           title: 'Today',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'calendar' : 'calendar-outline'} size={23} color={color} />
+            <Ionicons name={focused ? 'calendar' : 'calendar-outline'} size={23} color={color as string} />
           ),
         }}
       />
@@ -48,7 +48,7 @@ export default function TabLayout() {
         options={{
           title: 'Workout',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'barbell' : 'barbell-outline'} size={24} color={color} />
+            <Ionicons name={focused ? 'barbell' : 'barbell-outline'} size={24} color={color as string} />
           ),
         }}
       />
@@ -57,7 +57,7 @@ export default function TabLayout() {
         options={{
           title: 'Cardio',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'walk' : 'walk-outline'} size={24} color={color} />
+            <Ionicons name={focused ? 'walk' : 'walk-outline'} size={24} color={color as string} />
           ),
         }}
       />
@@ -66,7 +66,7 @@ export default function TabLayout() {
         options={{
           title: 'Nutrition',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'restaurant' : 'restaurant-outline'} size={22} color={color} />
+            <Ionicons name={focused ? 'restaurant' : 'restaurant-outline'} size={22} color={color as string} />
           ),
         }}
       />
@@ -75,14 +75,14 @@ export default function TabLayout() {
         options={{
           title: 'Progress',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'analytics' : 'analytics-outline'} size={23} color={color} />
+            <Ionicons name={focused ? 'analytics' : 'analytics-outline'} size={23} color={color as string} />
           ),
         }}
       />
       <Tabs.Screen
         name="two"
         options={{
-          href: null, // Hide legacy tab
+          href: null,
         }}
       />
     </Tabs>
