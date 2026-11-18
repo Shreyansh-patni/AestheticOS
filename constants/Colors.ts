@@ -1,19 +1,42 @@
-const tintColorLight = '#2f95dc';
-const tintColorDark = '#fff';
-
-export default {
+export const Colors = {
   light: {
-    text: '#000',
-    background: '#fff',
-    tint: tintColorLight,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorLight,
+    base: '#FFFFFF',
+    card: '#FAFAFA',
+    cardBorder: '#E5E5E5',
+    subtle: '#F5F5F5',
+    border: '#E5E5E5',
+    borderStrong: '#D4D4D4',
+    text: '#0A0A0A',
+    textSecondary: '#525252',
+    textMuted: '#737373',
+    accent: '#10B981', // Emerald for completions
+    accentSubtle: 'rgba(16, 185, 129, 0.12)',
+    warning: '#F59E0B',
+    danger: '#EF4444',
+    tabBarBackground: '#FFFFFF',
+    tabBarBorder: '#E5E5E5',
+    tabIconDefault: '#737373',
+    tabIconSelected: '#0A0A0A',
   },
   dark: {
-    text: '#fff',
-    background: '#000',
-    tint: tintColorDark,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorDark,
+    base: '#000000',
+    card: '#0A0A0A',
+    cardBorder: '#262626',
+    subtle: '#171717',
+    border: '#262626',
+    borderStrong: '#373737',
+    text: '#FAFAFA',
+    textSecondary: '#D4D4D4',
+    textMuted: '#8A8A8A',
+    accent: '#10B981', // Emerald for completions
+    accentSubtle: 'rgba(16, 185, 129, 0.16)',
+    warning: '#F59E0B',
+    danger: '#EF4444',
+    tabBarBackground: '#000000',
+    tabBarBorder: '#171717',
+    tabIconDefault: '#525252',
+    tabIconSelected: '#FAFAFA',
   },
 };
+
+export type ThemeColors = typeof Colors.dark;
