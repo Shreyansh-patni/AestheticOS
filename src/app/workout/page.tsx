@@ -340,7 +340,7 @@ export default function WorkoutPage() {
   };
 
   // High volume notice check (if exercise count > 9)
-  const isHighVolumeDay = currentProgramDay.exercises.length > 9;
+  const isHighVolumeDay = Boolean(currentProgramDay?.exercises && currentProgramDay.exercises.length > 9);
 
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
