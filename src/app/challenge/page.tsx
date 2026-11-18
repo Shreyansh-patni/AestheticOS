@@ -1,23 +1,16 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import {
   Trophy,
   CheckCircle2,
-  Calendar,
-  Flame,
   Dumbbell,
   Scale,
-  Sparkles,
   ShieldCheck,
-  ChevronRight,
-  ArrowRight,
 } from 'lucide-react';
 import { StorageService } from '@/lib/storage';
-import { UserProfile, WorkoutHistoryItem, BodyMeasurement } from '@/types';
+import { UserProfile, WorkoutHistoryItem } from '@/types';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { ProgressRing } from '@/components/ui/ProgressRing';
 import { fireMilestoneCelebration } from '@/lib/confetti';
@@ -26,10 +19,13 @@ export default function ChallengePage() {
   const [profile, setProfile] = useState<UserProfile>(StorageService.getProfile());
   const [completedDays, setCompletedDays] = useState<number[]>([]);
   const [history, setHistory] = useState<WorkoutHistoryItem[]>([]);
-  const [measurements, setMeasurements] = useState<BodyMeasurement[]>([]);
 
   useEffect(() => {
     const load = () => {
+      setProfile(StorageService.getProfile());
+      setCompletedDays(StorageService.getChallengeCompletedDays());
+      setHistory(StorageService.getHistory());
+    };
       setProfile(StorageService.getProfile());
       setCompletedDays(StorageService.getChallengeCompletedDays());
       setHistory(StorageService.getHistory());
