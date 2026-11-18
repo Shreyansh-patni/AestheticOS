@@ -9,6 +9,7 @@ export const Colors = {
     text: '#0A0A0A',
     textSecondary: '#525252',
     textMuted: '#737373',
+    tint: '#0A0A0A',
     accent: '#10B981', // Emerald for completions
     accentSubtle: 'rgba(16, 185, 129, 0.12)',
     warning: '#F59E0B',
@@ -28,6 +29,7 @@ export const Colors = {
     text: '#FAFAFA',
     textSecondary: '#D4D4D4',
     textMuted: '#8A8A8A',
+    tint: '#FAFAFA',
     accent: '#10B981', // Emerald for completions
     accentSubtle: 'rgba(16, 185, 129, 0.16)',
     warning: '#F59E0B',
@@ -40,3 +42,4 @@ export const Colors = {
 };
 
 export type ThemeColors = typeof Colors.dark;
+export default Colors;

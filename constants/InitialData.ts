@@ -801,3 +801,7 @@ export const initialHabits: DailyHabitLog[] = [
   { date: '2026-11-17', workoutCompleted: true, walkCompleted: true, runCompleted: false, proteinMet: true, balancedMeals: true, hydrated: true, sleptWell: true, supplementsTaken: true, mobilityCompleted: true },
   { date: '2026-11-18', workoutCompleted: true, walkCompleted: true, runCompleted: false, proteinMet: true, balancedMeals: true, hydrated: true, sleptWell: true, supplementsTaken: true, mobilityCompleted: true },
 ];
+
+export const vegetarianAndEggFoods = initialFoodDatabase;
+export const seedWorkoutHistory = initialWorkoutHistory;
+
