@@ -2,17 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  Flame,
   Play,
   Pause,
-  RotateCcw,
   CheckCircle2,
   Plus,
   Compass,
-  TrendingUp,
-  Heart,
-  Calendar,
-  Sparkles,
   Footprints,
 } from 'lucide-react';
 import { StorageService } from '@/lib/storage';

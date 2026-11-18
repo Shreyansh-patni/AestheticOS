@@ -42,7 +42,7 @@ export default function WorkoutPage() {
 
   // Rest Timer State
   const [showRestTimer, setShowRestTimer] = useState(false);
-  const [restDuration, setRestDuration] = useState(90);
+  const [restDuration] = useState(90);
 
   // Exercise Instruction Modal State
   const [viewingExercise, setViewingExercise] = useState<Exercise | null>(null);
