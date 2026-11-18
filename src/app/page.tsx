@@ -45,22 +45,45 @@ export default function DashboardPage() {
   const [activeSession, setActiveSession] = useState<ActiveWorkoutSession | null>(null);
   const [history, setHistory] = useState<WorkoutHistoryItem[]>([]);
   const [measurements, setMeasurements] = useState<BodyMeasurement[]>([]);
-  const [todayHabit, setTodayHabit] = useState<DailyHabitLog>(
-    StorageService.getHabitForDate(new Date().toISOString().split('T')[0])
-  );
+  const [todayDateStr, setTodayDateStr] = useState<string>('2026-11-18');
+  const [todayHabit, setTodayHabit] = useState<DailyHabitLog>({
+    date: '2026-11-18',
+    workoutCompleted: false,
+    walkCompleted: false,
+    runCompleted: false,
+    proteinMet: false,
+    balancedMeals: false,
+    hydrated: false,
+    sleptWell: false,
+    supplementsTaken: false,
+    mobilityCompleted: false,
+  });
   const [selectedDayName, setSelectedDayName] = useState<string>('Monday');
   const [todayWalkMinutes, setTodayWalkMinutes] = useState(30);
-
-  const todayDateStr = new Date().toISOString().split('T')[0];
+  const [past7Days, setPast7Days] = useState<string[]>([]);
+  const [greeting, setGreeting] = useState('Welcome');
 
   useEffect(() => {
+    const today = new Date().toISOString().split('T')[0];
+    setTodayDateStr(today);
+
+    const hour = new Date().getHours();
+    setGreeting(hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening');
+
+    const past = Array.from({ length: 7 }, (_, i) => {
+      const d = new Date();
+      d.setDate(d.getDate() - (6 - i));
+      return d.toISOString().split('T')[0];
+    });
+    setPast7Days(past);
+
     const loadData = () => {
       setProfile(StorageService.getProfile());
       setProgram(StorageService.getProgram());
       setActiveSession(StorageService.getActiveSession());
       setHistory(StorageService.getHistory());
       setMeasurements(StorageService.getMeasurements());
-      setTodayHabit(StorageService.getHabitForDate(todayDateStr));
+      setTodayHabit(StorageService.getHabitForDate(today));
 
       // Determine today's day of week
       const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -69,7 +92,7 @@ export default function DashboardPage() {
 
       // Check walk logs for today
       const walks = StorageService.getWalks();
-      const todayWalk = walks.find((w) => w.date === todayDateStr);
+      const todayWalk = walks.find((w) => w.date === today);
       if (todayWalk) {
         setTodayWalkMinutes(todayWalk.durationMinutes);
       }
@@ -78,18 +101,12 @@ export default function DashboardPage() {
     loadData();
     window.addEventListener('aesthetic-storage-update', loadData);
     return () => window.removeEventListener('aesthetic-storage-update', loadData);
-  }, [todayDateStr]);
+  }, []);
 
   // Today's workout program day
   const todayProgramDay = program.find((p) => p.dayOfWeek === selectedDayName) || program[0];
 
   // Calculate weekly completion
-  const past7Days = Array.from({ length: 7 }, (_, i) => {
-    const d = new Date();
-    d.setDate(d.getDate() - (6 - i));
-    return d.toISOString().split('T')[0];
-  });
-
   const workoutsThisWeek = history.filter((h) => past7Days.includes(h.date)).length;
   const weeklyWorkoutTarget = 5;
   const weeklyCompletionRate = Math.min(Math.round((workoutsThisWeek / weeklyWorkoutTarget) * 100), 100);
@@ -132,10 +149,6 @@ export default function DashboardPage() {
       weight: m.weightKg,
       target: profile.targetWeightKg,
     }));
-
-  // Greeting
-  const hour = new Date().getHours();
-  const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
 
   // Check if today was already worked out
   const todayWorkedOut = history.some((h) => h.date === todayDateStr);
