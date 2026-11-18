@@ -2,21 +2,20 @@ import { useFonts } from 'expo-font';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import { useColorScheme, StatusBar } from 'react-native';
 import 'react-native-reanimated';
 
-import { useColorScheme } from '@/components/useColorScheme';
+import { database } from '@/services/database';
+import { Colors } from '@/constants/Colors';
 
 export {
-  // Catch any errors thrown by the Layout component.
   ErrorBoundary,
 } from 'expo-router';
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  anchor: '(tabs)',
+  initialRouteName: '(tabs)',
 };
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -24,7 +23,10 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
+  useEffect(() => {
+    database.init();
+  }, []);
+
   useEffect(() => {
     if (error) throw error;
   }, [error]);
@@ -43,13 +45,84 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme() ?? 'dark';
+  const theme = Colors[colorScheme];
+
+  const customDarkTheme = {
+    ...DarkTheme,
+    colors: {
+      ...DarkTheme.colors,
+      background: '#000000',
+      card: '#0A0A0A',
+      border: '#262626',
+      text: '#FAFAFA',
+      primary: '#FAFAFA',
+    },
+  };
+
+  const customLightTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: '#FFFFFF',
+      card: '#FAFAFA',
+      border: '#E5E5E5',
+      text: '#0A0A0A',
+      primary: '#0A0A0A',
+    },
+  };
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
+    <ThemeProvider value={colorScheme === 'dark' ? customDarkTheme : customLightTheme}>
+      <StatusBar barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'} />
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: theme.base,
+          },
+          headerTintColor: theme.text,
+          headerShadowVisible: false,
+          contentStyle: {
+            backgroundColor: theme.base,
+          },
+        }}
+      >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen
+          name="exercises"
+          options={{
+            headerShown: false,
+            presentation: 'card',
+          }}
+        />
+        <Stack.Screen
+          name="challenge"
+          options={{
+            headerShown: false,
+            presentation: 'card',
+          }}
+        />
+        <Stack.Screen
+          name="history"
+          options={{
+            headerShown: false,
+            presentation: 'card',
+          }}
+        />
+        <Stack.Screen
+          name="settings"
+          options={{
+            headerShown: false,
+            presentation: 'card',
+          }}
+        />
+        <Stack.Screen
+          name="modal"
+          options={{
+            presentation: 'modal',
+            title: 'About AestheticOS',
+          }}
+        />
       </Stack>
     </ThemeProvider>
   );
