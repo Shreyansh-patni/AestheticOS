@@ -2,15 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  Apple,
   Plus,
   Trash2,
-  Droplets,
   Sparkles,
   Search,
   CheckCircle2,
-  AlertCircle,
-  Scale,
   ShieldCheck,
 } from 'lucide-react';
 import { StorageService } from '@/lib/storage';
@@ -23,7 +19,6 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { ProgressRing } from '@/components/ui/ProgressRing';
-import { ProgressBar } from '@/components/ui/ProgressBar';
 import { Modal } from '@/components/ui/Modal';
 
 export default function NutritionPage() {
@@ -43,7 +38,7 @@ export default function NutritionPage() {
   // Custom Food Item Form
   const [isCustomMode, setIsCustomMode] = useState(false);
   const [customFoodName, setCustomFoodName] = useState('');
-  const [customServing, setCustomServing] = useState('1 serving');
+  const [customServing] = useState('1 serving');
   const [customCalories, setCustomCalories] = useState(200);
   const [customProtein, setCustomProtein] = useState(15);
   const [customCarbs, setCustomCarbs] = useState(20);

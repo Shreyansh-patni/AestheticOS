@@ -26,11 +26,6 @@ export default function ChallengePage() {
       setCompletedDays(StorageService.getChallengeCompletedDays());
       setHistory(StorageService.getHistory());
     };
-      setProfile(StorageService.getProfile());
-      setCompletedDays(StorageService.getChallengeCompletedDays());
-      setHistory(StorageService.getHistory());
-      setMeasurements(StorageService.getMeasurements());
-    };
     load();
     window.addEventListener('aesthetic-storage-update', load);
     return () => window.removeEventListener('aesthetic-storage-update', load);

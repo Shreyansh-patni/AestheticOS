@@ -2,15 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  Scale,
   Plus,
-  TrendingUp,
   Camera,
-  Calendar,
-  Sparkles,
-  ArrowRight,
-  ChevronRight,
-  ShieldAlert,
 } from 'lucide-react';
 import { StorageService } from '@/lib/storage';
 import {

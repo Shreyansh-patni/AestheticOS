@@ -2,21 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  History,
   Search,
-  Filter,
-  Calendar,
-  Dumbbell,
-  Clock,
-  TrendingUp,
   Trophy,
   Trash2,
   ChevronRight,
-  Sparkles,
 } from 'lucide-react';
 import { StorageService } from '@/lib/storage';
-import { WorkoutHistoryItem, HistoryExerciseSummary } from '@/types';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
+import { WorkoutHistoryItem } from '@/types';
+import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Modal } from '@/components/ui/Modal';

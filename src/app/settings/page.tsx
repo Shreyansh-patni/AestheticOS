@@ -2,17 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  Settings,
   User,
   Sliders,
   Moon,
   Sun,
   Laptop,
-  Download,
-  Upload,
   RotateCcw,
   Check,
-  ShieldCheck,
   FileSpreadsheet,
   FileCode,
 } from 'lucide-react';

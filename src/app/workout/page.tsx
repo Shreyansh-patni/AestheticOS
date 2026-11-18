@@ -71,10 +71,12 @@ export default function WorkoutPage() {
     return () => window.removeEventListener('aesthetic-storage-update', load);
   }, []);
 
+  const isSessionActive = Boolean(activeSession && activeSession.status === 'active' && !activeSession.isPaused);
+
   // Sync elapsed time ticker
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
-    if (activeSession && activeSession.status === 'active' && !activeSession.isPaused) {
+    if (isSessionActive) {
       interval = setInterval(() => {
         setActiveSession((prev) => {
           if (!prev) return null;
@@ -87,7 +89,7 @@ export default function WorkoutPage() {
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [activeSession?.status, activeSession?.isPaused]);
+  }, [isSessionActive]);
 
   // Selected day in program
   const currentProgramDay = program.find((p) => p.id === selectedDayId) || initialWorkoutProgram[0];

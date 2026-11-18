@@ -201,7 +201,7 @@ export default function CardioPage() {
         <Card className="lg:col-span-1 flex flex-col justify-between">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <Badge variant="success">Daily Goal: 30 Min</Badge>
+              <Badge variant="success">Daily Goal: {profile.dailyWalkingTargetMinutes} Min</Badge>
               <Footprints className="w-4 h-4 text-emerald-500" />
             </div>
             <CardTitle className="text-xl mt-2">Daily Walking Tracker</CardTitle>

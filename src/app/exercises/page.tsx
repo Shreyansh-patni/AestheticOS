@@ -3,17 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import {
   Search,
-  Filter,
-  BookOpen,
   Plus,
-  Info,
-  Dumbbell,
-  Check,
   ChevronRight,
 } from 'lucide-react';
 import { StorageService } from '@/lib/storage';
 import { Exercise, MuscleGroup, EquipmentType } from '@/types';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Modal } from '@/components/ui/Modal';
