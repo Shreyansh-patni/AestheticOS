@@ -1,187 +1,195 @@
-# AestheticOS — Personal Fitness & Hypertrophy Operating System
+# AestheticOS: Precision Personal Fitness Application
 
-> Designed and built as an Apple-inspired personal fitness operating system for progressive overload, hypertrophy architecture, nutrition tracking, cardio, and physique analytics.
-
----
-
-## 1. Overview & Vision
-
-**AestheticOS** is a production-quality, responsive fitness web application built specifically for athletes and returning beginners aiming to build a lean, aesthetic, and athletic physique.
-
-Instead of generic dashboards with decorative mockups, AestheticOS is a complete, working operating system designed with an **Apple-inspired monochromatic design language**, strict typography hierarchy, high contrast, and zero non-functional controls.
-
-### Initial Athlete Profile
-- **Height:** 175 cm
-- **Current Weight:** 55.0 kg
-- **Target Weight:** 65.0 kg (gradual lean bulking trajectory)
-- **Primary Goal:** Build a lean, aesthetic, and athletic physique
-- **Target Aesthetic Focus:** Broad lateral delts, developed upper chest shelf, wide lats & V-taper, dense arms (biceps/triceps/brachialis), strong forearms & traps, functional core, and balanced leg architecture
-- **Training Frequency:** 5 strength days + 2 active recovery days
-- **Daily Cardio:** 30-minute daily walk
-- **Running:** 2–3 easy conversational sessions per week
-- **Nutritional Framework:** Controlled mild caloric surplus (~2,350 kcal) + 95g daily protein target (vegetarian and egg-based database) + daily hydration (3.0L) and creatine (5g).
+> **A genuine cross-platform native mobile application for Android and iOS built with React Native, Expo, TypeScript, Expo SQLite, and Apple-inspired Human Interface monochromatic design.**
 
 ---
 
-## 2. Core Features
+## 1. Executive Summary
 
-### 🏋️‍♂️ 1. Precision Workout Tracking System ("Gym Mode")
-- **Live Gym Mode Interface:** Large tactile inputs with `+` / `-` quick stepper buttons designed for sweaty gym fingers.
-- **Previous Session Performance Display:** Automatically references past weights and reps (e.g. `Set 1: 12 kg × 10 reps`) directly on the set line.
-- **Editable Sets, Reps & RIR:** Log weight used, actual repetitions achieved, and Reps in Reserve (0 to 4+).
-- **Integrated Rest Timer:** Built-in floating/dockable countdown timer with presets (60s, 90s, 120s, 180s, custom input, `+15s`, reset) and Web Audio API synthesized chime.
-- **Exercise Technique Drawer:** Instant slide-over guide displaying step-by-step form instructions, common mistakes to avoid, and coaching cues without leaving the session.
-- **Dynamic Substitutions:** Replace any exercise in real-time with an approved movement from the verified exercise library.
-- **High-Volume Fatigue Warning:** Sensible safety alerts when weekly sets exceed recovery thresholds.
-- **Finish Workout Celebration:** Confetti celebration, volume summary, duration calculation, and automatic saving to history and daily habit logs.
+**AestheticOS** is designed for the focused athlete seeking to build a lean, aesthetic, and athletic physique. It strictly implements an offline-first architecture with persistent local storage, native screen transitions, haptic feedback, and a clean monochromatic design inspired by Apple's Human Interface Guidelines and Linear.
 
-### 📋 2. Weekly Workout Programme (Fully Editable)
-- **Monday:** Chest + Side Delts + Arms (Incline DB Press, Flat Bench, Cable Fly, DB Lateral Raise, Lean-Away Lateral Raise, Rear Delt Fly, Alternating DB Curl, Overhead Triceps Extension)
-- **Tuesday:** Back + Lats + Traps + Forearms (Pull-ups/Lat Pulldown, 1-Arm DB Row, Chest-Supported Row, DB Pullover, Rear Delt Fly, DB Shrugs, Farmer's Carry, Incline DB Curl, Hammer Curl, Reverse DB Curl)
-- **Wednesday:** Legs + Abs + Arms (Barbell Back Squat, Leg Press, Bulgarian Split Squat, Romanian Deadlift, Leg Curl, Standing Calf Raise, Hanging Knee Raise, Reverse Crunch, Side Plank, Hammer Curl, Overhead DB Triceps Extension)
-- **Thursday:** Upper Chest + Shoulders + Arms (Incline DB Press, DB Squeeze Press, DB Shoulder Press, DB Lateral Raise, Rear Delt Fly, EZ-Bar/DB Curl, Hammer Curl, DB Skull Crusher, Rope Pushdown)
-- **Friday:** Back + Leg Accessories + Abs + Arms (Pull-ups/Lat Pulldown, 1-Arm DB Row, Seated Cable Row, Leg Extension, Leg Curl, Standing Calf Raise, Reverse Crunch, Dead Bug, DB Curl, DB Skull Crusher, Wrist Curl)
-- **Saturday & Sunday:** Active Recovery protocols (30m walk, thoracic/hip/ankle mobility, gentle stretching).
-- Add, edit target sets/reps, remove, or customize any day's routine.
-
-### 📚 3. Verified Exercise Library
-- 40+ exercises categorized by muscle group (Chest, Back, Shoulders, Biceps, Triceps, Forearms, Legs, Abs, Cardio, Mobility).
-- Filterable by muscle group, equipment (Barbell, Dumbbell, Cable, Machine, Bodyweight), and real-time search.
-- Step-by-step instructions, targeted biomechanics, common mistakes, and substitutions.
-- Custom exercise creator to add personalized gym machines or variations.
-
-### 🏃 4. Cardio Architecture (Walking & Running)
-- **Daily Walking Tracker:** 30-minute daily target ring, live start/stop stopwatch timer, manual logging, and 7-day consistency bar chart.
-- **Beginner Running Progression:** 2–3 easy conversational runs per week, distance, duration, calculated pace (`min/km`), run type (easy, interval, tempo), and distance progression chart.
-- **Aerobic Base Guidance:** Explanations on why low-impact cardio promotes capillary density and nutrient delivery without burning muscle mass.
-
-### 🥗 5. Nutrition & Macro Architecture
-- **Daily Macronutrient Rings:** Real-time caloric surplus tracking (~2,350 kcal) and protein tracking (90–100g, default 95g).
-- **Vegetarian & Egg-Based Food Database:** Pre-populated with whole eggs, egg whites, paneer, low-fat paneer, firm tofu, soya chunks, cooked yellow moong dal, boiled chickpeas (chole), rajma, rice, whole wheat roti, rolled oats, greek yogurt, peanut butter, mixed nuts, seeds, bananas, and whey isolate.
-- **Portion Multipliers & Custom Entry:** Log 0.5x, 1x, 1.5x, 2x servings or input custom meals.
-- **Quick Water Logger:** `+250ml`, `+500ml` buttons and daily hydration tracking.
-- **Daily Creatine Checkbox:** 5g daily supplement tracker.
-- **Biological Realities:** Clear educational callout debunking spot-reduction and extreme calorie deficits.
-
-### 📈 6. Progress Analytics & Private Photo Gallery
-- **Body Measurements Tracker:** Scale weight, height, waist, upper chest, shoulders, arms, and thighs.
-- **Charts (Recharts):** Weight trend with target guideline (65 kg), waist retention line (taper index), and exercise strength progression.
-- **Private Progress Gallery:** Local on-device storage for physique photos (Front, Side, Back) with date stamping.
-- **Baseline vs. Latest Comparison Table:** Immediate feedback on muscle gain vs. waist stability.
-
-### 🏆 7. 30-Day Aesthetic Foundation Challenge
-- Dedicated 30-day transformation dashboard with interactive day checkins.
-- **Key Milestones:**
-  - **Day 1:** Baseline measurements and photographs
-  - **Day 7:** First weekly calibration and fatigue audit
-  - **Day 15:** Midpoint progress review (~0.5 kg lean gain check)
-  - **Day 21:** Habit lock-in and neural adaptation
-  - **Day 30:** Final physique comparison and Phase 2 transition
-- Confetti celebration upon achieving milestone days.
-
-### 📜 8. Workout History & PR Ledger
-- Complete searchable and filterable history of past sessions.
-- Detailed modal displaying all sets, weights, repetitions, and RIR.
-- Personal records (PR) showcase cards for top lifts.
-
-### ⚙️ 9. Settings, Theme & Data Management
-- Complete profile customization (height, weight, goals, experience).
-- **Monochromatic Apple Themes:** Dark mode (true black `#000000` / `#0A0A0A` cards), Light mode (`#FFFFFF` / `#FAFAFA` cards), and System appearance matching.
-- **Unit System:** Metric (`kg`, `cm`) and Imperial (`lb`, `in`).
-- **Data Export:**
-  - Export full state as JSON backup
-  - Export workout history as CSV
-  - Export measurements as CSV
-- **Data Import:** Restore from JSON backup file with validation.
-- **Reset:** Restore default starter template anytime.
+### Athlete Profile & Baseline Parameters
+- **Height**: 175 cm
+- **Current Weight**: 55.0 kg
+- **Target Weight**: 65.0 kg (+10 kg lean muscular mass target)
+- **Primary Goal**: Build a lean, aesthetic, and athletic physique with golden-ratio V-taper proportions.
+- **Secondary Priorities**:
+  - Upper clavicular chest development
+  - Lateral deltoid width & 3D shoulder shape
+  - Latissimus dorsi flare for V-taper aesthetics
+  - Biceps, triceps, and forearm vascularity & strength
+  - Core stability and defined abdominal wall
+  - Balanced quadriceps, hamstrings, and calves
+  - Cardiovascular baseline without interfering with hypertrophy
+- **Training Frequency**: 5 Strength Training Days + 2 Active Recovery Days per week.
+- **Cardio Targets**: 30 minutes daily walking + 2–3 easy aerobic base runs per week.
+- **Nutrition Targets**: 2,350 kcal/day (gentle lean gaining surplus; strictly no aggressive deficits or crash diets) with 95g+ daily protein from high-quality vegetarian and egg sources, 3.0L daily hydration, and 5g daily creatine monohydrate.
 
 ---
 
-## 3. Technology Stack
+## 2. Technology Stack
 
-- **Framework:** Next.js 16 (App Router)
-- **Language:** TypeScript 5
-- **Styling:** Tailwind CSS 4 with custom monochromatic CSS variables
-- **Icons:** Lucide React
-- **Data Visualizations:** Recharts (monochromatic curves with subtle emerald accents)
-- **Feedback & Sound:** Web Audio API synthesized audio chime + `canvas-confetti`
-- **Persistence:** LocalStorage with typed synchronous fallback and custom event bus
+- **Framework**: [React Native](https://reactnative.dev/) `0.88` with [Expo SDK 58](https://expo.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/) `~5.7` with strict typechecking
+- **Routing**: [Expo Router v58](https://docs.expo.dev/router/introduction/) (File-based native routing with native tabs and stack screens)
+- **Database**: [Expo SQLite v15](https://docs.expo.dev/versions/latest/sdk/sqlite/) (`expo-sqlite` WAL-mode offline relational database)
+- **Secure Storage**: [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)
+- **Haptics**: [Expo Haptics](https://docs.expo.dev/versions/latest/sdk/haptics/) (Subtle iOS/Android tactile feedback)
+- **Graphics**: [react-native-svg](https://github.com/software-mansion/react-native-svg) (Apple-inspired concentric activity rings and vector charts)
+- **Iconography**: `@expo/vector-icons` (Apple SF-aligned Ionicons)
+- **Build System**: EAS Build (`eas.json`) + Local Gradle Wrapper (`android/gradlew`)
 
 ---
 
-## 4. Getting Started Locally
+## 3. Apple-Inspired Monochromatic Palette
+
+Following Apple's Human Interface Guidelines and modern monochromatic SaaS aesthetics, the interface uses true pitch-black dark mode with subtle slate surfaces:
+
+| Token | Dark Theme (Default) | Light Theme | Usage |
+|---|---|---|---|
+| **Base** | `#000000` | `#FFFFFF` | Background canvas |
+| **Card** | `#0A0A0A` | `#FAFAFA` | Elevated surfaces |
+| **Subtle** | `#171717` | `#F5F5F5` | Input backgrounds, steppers |
+| **Border** | `#262626` | `#E5E5E5` | Structural dividers |
+| **Border Strong**| `#373737` | `#D4D4D4` | Active card outlines |
+| **Text Primary** | `#FAFAFA` | `#0A0A0A` | Headings & active numbers |
+| **Text Secondary**| `#D4D4D4` | `#525252` | Body copy & metrics |
+| **Text Muted** | `#8A8A8A` | `#737373` | Tags, units, metadata |
+| **Accent** | `#10B981` | `#10B981` | Completed checks, streaks, PRs |
+| **Warning** | `#F59E0B` | `#F59E0B` | Fatigue warnings, paused timers |
+| **Danger** | `#EF4444` | `#EF4444` | Destructive confirmations |
+
+---
+
+## 4. Application Architecture & Screens
+
+```
+AestheticOS/
+├── app/
+│   ├── _layout.tsx           # Root navigation stack & SQLite initializer
+│   ├── (tabs)/
+│   │   ├── _layout.tsx       # 5-tab native bar with Apple monochromatic styling
+│   │   ├── index.tsx         # Today Dashboard (Rings, workout card, habits, spot-reduction cue)
+│   │   ├── workout.tsx       # Gym Mode (Active set tracker, RIR, live stopwatch, rest timer)
+│   │   ├── cardio.tsx        # Cardio Tracker (30m live walking timer, easy running logger)
+│   │   ├── nutrition.tsx     # Fuel & Hydration (Macros, vegetarian/egg database, water, creatine)
+│   │   └── progress.tsx      # Progress (V-taper ratio, weight trend, measurement ledger)
+│   ├── exercises.tsx         # 40+ Exercise Library categorized by muscle with execution cues
+│   ├── challenge.tsx         # 30-Day Aesthetic Foundation Challenge & Milestones
+│   ├── history.tsx           # Workout History Ledger with volume and set breakdowns
+│   ├── settings.tsx          # Profile editor, unit system, JSON export & DB reset
+│   └── modal.tsx             # About AestheticOS modal
+├── components/
+│   ├── NativeCard.tsx        # Monochromatic bordered card surface
+│   ├── NativeButton.tsx      # Haptic pressable button (primary, secondary, accent, danger)
+│   ├── HeaderBar.tsx         # iOS/Android clean navigation header
+│   ├── ActivityRings.tsx     # Concentric SVG rings (Strength, Walk, Nutrition)
+│   └── RestTimerModal.tsx    # Standalone rest timer with presets (60s, 90s, 120s, 180s)
+├── constants/
+│   ├── Colors.ts             # Monochromatic theme palette
+│   └── InitialData.ts        # 7-day program, 40+ exercises, vegetarian foods, profile
+├── services/
+│   ├── database.ts           # Expo SQLite offline database client & queries
+│   ├── haptics.ts            # Tactile feedback service
+│   └── secureStore.ts        # Encrypted settings storage
+├── types/
+│   └── index.ts              # Full TypeScript models & interfaces
+├── android/                  # Native Android project with Gradle wrapper
+├── app.json                  # Expo application configuration & plugins
+└── eas.json                  # EAS Build configuration for APK and AAB
+```
+
+---
+
+## 5. The Weekly Hypertrophy Programme
+
+A scientific 5-day push/pull/legs/upper split engineered for shoulder width, lat flare, upper chest density, and arm development:
+
+| Day | Routine | Focus Areas |
+|---|---|---|
+| **Monday** | Chest + Side Delts + Arms | Incline DB Press, Flat Bench, Cable Fly, DB Lateral Raise, Lean-Away Lateral Raise, Rear Delt Fly, Alternating DB Curl, Overhead DB Triceps Extension |
+| **Tuesday** | Back + Lats + Traps + Forearms | Pull-ups / Lat Pulldown, 1-Arm DB Row, Chest-Supported Row, DB Pullover, Rear Delt Fly, DB Shrugs, Farmer's Carry, Incline DB Curl, Hammer Curl, Reverse DB Curl |
+| **Wednesday** | Legs + Abs + Arms | Barbell Back Squat, Leg Press, Bulgarian Split Squat, Romanian Deadlift, Leg Curl, Standing Calf Raise, Hanging Knee Raise, Reverse Crunch, Side Plank, Hammer Curl, Overhead Triceps Ext |
+| **Thursday** | Upper Chest + Shoulders + Arms | Incline DB Press, DB Squeeze Press, DB Shoulder Press, DB Lateral Raise, Rear Delt Fly, EZ-Bar / DB Curl, Hammer Curl, DB Skull Crusher, Rope Triceps Pushdown |
+| **Friday** | Back + Leg Accessories + Abs + Arms | Pull-ups / Lat Pulldown, 1-Arm DB Row, Seated Cable Row, Leg Extension, Leg Curl, Standing Calf Raise, Reverse Crunch, Dead Bug, DB Curl, DB Skull Crusher, Wrist Curl |
+| **Saturday** | Active Recovery | 30-min brisk walk, full-body & shoulder mobility, hip opening, gentle stretching |
+| **Sunday** | Active Recovery | 30-min brisk walk, posture reset, deep breathing, recovery activities |
+
+---
+
+## 6. Offline SQLite Database Schema
+
+All data is stored in the local SQLite database (`aestheticos.db`) using write-ahead logging (WAL):
+
+- `profile`: User settings, height, current/target weights, calorie & protein targets.
+- `program`: The 7-day workout routine with editable target sets and reps.
+- `exercises`: Master exercise library with cues, common mistakes, and substitutions.
+- `workout_history`: Recorded sessions with duration, total tonnage volume (kg), and set details.
+- `active_session`: Persisted in-flight gym session allowing seamless app restarts without data loss.
+- `walk_logs`: Daily walking sessions and duration.
+- `run_logs`: Running sessions with distance, duration, pace (min/km), and type.
+- `nutrition_logs`: Daily food logs with calories, protein, carbs, and fat.
+- `daily_habits`: Daily completion checklist (workout, walk, run, protein, water, sleep, supplements).
+- `measurements`: Weight, waist, chest, arms, shoulders, thighs, and notes.
+- `challenge_days`: 30-Day Foundation Challenge completion ledger.
+
+---
+
+## 7. How to Run & Build
 
 ### Prerequisites
-- Node.js 18+ (tested on Node v20 and v26)
-- npm or pnpm
+- Node.js `18+` or `20+`
+- Expo CLI (`npm install -g eas-cli`)
 
-### Installation
-
+### Run Development Server
 ```bash
-# Clone or navigate to repository
-cd AestheticOS
-
-# Install dependencies
 npm install
-
-# Start the development server
-npm run dev
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Press `a` in the terminal to launch the Android emulator or connect your phone via Expo Go.
 
----
-
-## 5. Production Build & Deployment
-
-### Build Command
-
+### Type Check
 ```bash
-# Compile and build the production bundle
-npm run build
+npm run tsc # or: npx tsc --noEmit
 ```
 
-### Start Production Server
-
+### Build Android APK (Installable on any Android device)
+Using EAS Build (cloud):
 ```bash
-# Start Next.js production server
-npm run start
+eas build -p android --profile preview
+```
+This generates a direct download link for the standalone `.apk`.
+
+Or build locally with the included Gradle wrapper:
+```bash
+cd android
+./gradlew assembleRelease
+# The APK is generated at: android/app/build/outputs/apk/release/app-release.apk
 ```
 
-### Deploying to Vercel or Netlify
-AestheticOS is built with zero proprietary server dependencies and full client-side persistence, making it deployable on any platform:
+### Build Android AAB (For Google Play Store submission)
+```bash
+eas build -p android --profile production
+```
+Or build locally:
+```bash
+cd android
+./gradlew bundleRelease
+# The AAB is generated at: android/app/build/outputs/bundle/release/app-release.aab
+```
 
-1. **Vercel (Recommended):**
-   - Push to GitHub/GitLab.
-   - Import project in Vercel dashboard.
-   - Framework preset: Next.js.
-   - Build command: `npm run build`.
-   - Output directory: `.next`.
-
-2. **Docker / Self-Hosted:**
-   - Standard Next.js standalone container deployment.
-
----
-
-## 6. Progressive Web App (PWA) Setup
-
-AestheticOS is configured as an installable PWA:
-- `manifest.json` configured with standalone display mode and dark theme.
-- iOS safe-area insets (`env(safe-area-inset-bottom)`) supported on mobile.
-- To install on iPhone/iPad: Open in Safari, tap **Share** → **Add to Home Screen**.
-- To install on Android/Desktop: Tap **Install App** in Chrome/Edge.
+### Build iOS Application
+```bash
+eas build -p ios --profile preview    # Simulator build (.tar.gz)
+eas build -p ios --profile production # App Store production build (.ipa)
+```
 
 ---
 
-## 7. Fitness Principles & Architecture Notes
+## 8. Fitness & Health Safety Compliance
 
-1. **Progressive Overload:** Hypertrophy is driven by mechanical tension. AestheticOS remembers previous weights so you can add 1 rep or 0.5–1 kg each week.
-2. **Lean Caloric Surplus:** 55 kg at 175 cm represents an underweight/lean starting baseline. A small surplus of ~200–300 kcal over maintenance provides amino acids and glycogen for training without unwanted fat gain.
-3. **The Truth About Spot Reduction:** Fat loss occurs systemically according to genetics; abdominal crunches do not burn belly fat, and jaw exercises do not burn facial fat. Focus on systemic health, progressive lifting, and recovery.
-4. **Active Recovery:** The 2 rest days (Wednesday/Saturday/Sunday cadence) prevent overtraining, tendonitis, and central nervous system fatigue.
-
----
-
-## 8. License
-
-Personal License — Crafted for the user's personal fitness journey.
+1. **No Calorie Deficit**: AestheticOS is calibrated for lean mass gain (55kg → 65kg target) with 2,350 kcal/day and adequate carbohydrates to fuel intense resistance training.
+2. **Spot Reduction Myth**: Prominently dispels the myth of spot fat reduction. Explains that systemic body composition improvements come from caloric balance, consistent progressive overload, and patience.
+3. **Recovery Focus**: Incorporates active recovery guidelines, RIR (reps in reserve) target of 1–2 to avoid central nervous system burnout, and rest day encouragement.
+4. **Vegetarian & Egg Nutrition**: Features rich protein sources (Eggs, Whey, Paneer, Tofu, Moong Dal, Greek Yogurt, Soya Chunks) tailored to vegetarian diets.

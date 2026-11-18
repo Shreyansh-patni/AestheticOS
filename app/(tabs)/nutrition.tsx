@@ -112,7 +112,7 @@ export default function NutritionScreen() {
   const calPercent = Math.min((totalCalories / profile.dailyCalorieTarget) * 100, 100);
   const proteinPercent = Math.min((totalProtein / profile.dailyProteinTargetGrams) * 100, 100);
 
-  const filteredFoods = vegetarianAndEggFoods.filter((f) =>
+  const filteredFoods = vegetarianAndEggFoods.filter((f: FoodDatabaseItem) =>
     f.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
