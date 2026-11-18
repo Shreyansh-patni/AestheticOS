@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Timer, X, Play, Pause, RotateCcw, Plus, Volume2 } from 'lucide-react';
+import { Timer, X, Play, Pause, RotateCcw, Plus } from 'lucide-react';
 import { playRestCompleteChime } from '@/lib/audio';
 
 interface RestTimerProps {
