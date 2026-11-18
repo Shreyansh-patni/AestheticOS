@@ -28,7 +28,6 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { ProgressRing } from '@/components/ui/ProgressRing';
-import { ProgressBar } from '@/components/ui/ProgressBar';
 import {
   ResponsiveContainer,
   AreaChart,
