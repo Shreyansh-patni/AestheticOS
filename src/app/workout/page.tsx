@@ -37,10 +37,11 @@ import { Badge } from '@/components/ui/Badge';
 import { Modal } from '@/components/ui/Modal';
 import { RestTimer } from '@/components/ui/RestTimer';
 import { fireWorkoutCelebration } from '@/lib/confetti';
+import { initialWorkoutProgram, initialExercises } from '@/lib/initialData';
 
 export default function WorkoutPage() {
-  const [program, setProgram] = useState<WorkoutProgramDay[]>([]);
-  const [exercisesLibrary, setExercisesLibrary] = useState<Exercise[]>([]);
+  const [program, setProgram] = useState<WorkoutProgramDay[]>(initialWorkoutProgram);
+  const [exercisesLibrary, setExercisesLibrary] = useState<Exercise[]>(initialExercises);
   const [activeSession, setActiveSession] = useState<ActiveWorkoutSession | null>(null);
   const [history, setHistory] = useState<WorkoutHistoryItem[]>([]);
   const [selectedDayId, setSelectedDayId] = useState<string>('monday');
@@ -95,7 +96,7 @@ export default function WorkoutPage() {
   }, [activeSession?.status, activeSession?.isPaused]);
 
   // Selected day in program
-  const currentProgramDay = program.find((p) => p.id === selectedDayId) || program[0];
+  const currentProgramDay = program.find((p) => p.id === selectedDayId) || initialWorkoutProgram[0];
 
   // Lookup previous weights for an exercise from history
   const getPreviousPerformance = (exerciseId: string) => {
