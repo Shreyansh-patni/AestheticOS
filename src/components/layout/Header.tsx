@@ -8,7 +8,7 @@ import { StorageService } from '@/lib/storage';
 import { ActiveWorkoutSession } from '@/types';
 
 export function Header() {
-  const { theme, resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [activeSession, setActiveSession] = useState<ActiveWorkoutSession | null>(null);
   const [currentDateStr, setCurrentDateStr] = useState('');
 

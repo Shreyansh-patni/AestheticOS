@@ -12,7 +12,6 @@ import {
   TrendingUp,
   ArrowRight,
   ShieldAlert,
-  Clock,
   Sparkles,
   Trophy,
 } from 'lucide-react';
